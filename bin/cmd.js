@@ -4,7 +4,6 @@ var api = require('music163')
 var fs = require('fs')
 var path = require('path')
 var hyperquest = require('hyperquest')
-var lame = require('lame')
 var Speaker = require('speaker')
 var mkdirp = require('mkdirp')
 var chalk = require('chalk')
@@ -93,15 +92,7 @@ else if (argv._[0] === 'search') {
 } else if (argv._[0] === 'play') {
   if (argv._.length < 2) return error('please set the type you want to play by \"-t TYPE \"')
 
-  var id = argv._[1]
-  var type = argv.type || argv.t
-
-  getList(id, type, function(err, songs) {
-    if (err) return error(err)
-    playList(songs, function() {
-      console.log(chalk.green('Finish playing all the songs.'))
-    })
-  })
+    console.log(chalk.red('not supported on windows'));
 } else if (argv._[0] === 'download') {
   if (argv._.length < 2) return error('please set the type you want to play by \"-t TYPE \"')
 
